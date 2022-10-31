@@ -1,11 +1,11 @@
-# Naam
-Ontwerp en maak voor een opdrachtgever een component of website op basis van een bestaande huisstijl 
+# Component Library
+Ontwerp en maak voor een opdrachtgever een component library
 
 ## Context
-Deze leertaak hoort bij sprint 4 Look and Feel. Dit is een opdracht die je individueel uitvoert voor een opdrachtgever.
+Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die je individueel uitvoert voor een opdrachtgever.
 
 ## Doel van deze opdracht
-Je leert hoe onderdelen van een website op basis van een bestaande huisstijl maakt.
+Je leert hoe je herbruikbare stukken code op een systematische manier ontsluit zodat jij en jouw mede frontenders ze kunnen gebruiken in andere projecten.
 
 ## Werkwijze
 Bij elke leertaak wordt de development-lifecycle doorlopen. Hierdoor ontwikkel je een standaard aanpak voor frontend praktijkvraagstukken, werk je systematisch aan leertaken, ervaar je de relevantie van het geleerde en verwerf je de kennis, houding en vaardigheden die de beroepspraktijk van je vraagt.
@@ -26,16 +26,17 @@ De development lifecycle kent de volgende stappen:
 
 ## Criteria
 
-De focus van deze sprint ligt op het toepassen van een huisstijl en het maken van formulieren.
+In de sprint Don't Repeat Yourself ligt de focus op het hergebruik van code en ontwerpelementen
 
-Voor deze leertaak gelden de gedragscriteria voor sprint 4: 
-* Methodisch handelen: ...
-* Samenwerken: ...
-* Communiceren: ...
-* Probleemoplossend vermogen: ...
-* Lerend vermogen: ...
+Voor deze leertaak gelden de gedragscriteria voor sprint 16: 
+* Methodisch handelen: Richt in overleg projecten in volgens de development-lifecycle.
+* Samenwerken: Draagt verantwoording voor eigen resultaten, benoemt teamresultaten en informeert belanghebbenden over de voortgang.
+* Probleemoplossend vermogen: Selecteert de juiste principes, conventies en best-practices op het gebied van frontend, interface design en vormgeving om een passende oplossing voor een opdrachtgever te realiseren.
+* Lerend vermogen: Volgt aangeboden internationale ontwikkelingen in het vakgebied en maakt onder begeleiding keuzes over eigen ontwikkeling.
+* Lerend vermogen: Kent eigen capaciteiten en beperkingen, waardeert het vermogen van anderen en maakt dit bespreekbaar.
 
 Deze opdracht is done als:
+- [ ] je een component library hebt gemaakt.
 - [ ] je hebt gewerkt volgens de verschillende fases van de development-lifecycle
 - [ ] je hebt je werk gedocumenteerd in de Readme en Wiki (user story, ontwerpbeslissingen, schetsen en code voorbeelden)
 - [ ] de website op Github staat en een live url heeft
