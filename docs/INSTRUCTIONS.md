@@ -1,5 +1,5 @@
 # Component Library
-Ontwerp en maak voor een opdrachtgever een component library
+Ontwikkel een website voor een opdrachtgever op basis van een component library.
 
 ## Context
 Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die je individueel uitvoert voor een opdrachtgever.
