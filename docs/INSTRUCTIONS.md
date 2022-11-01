@@ -1,4 +1,4 @@
-# Do'nt Repeat Yourself - Component Library
+# Don't Repeat Yourself - Component Library
 Ontwikkel een website voor een opdrachtgever op basis van een component library.
 
 ## Context
