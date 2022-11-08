@@ -8,6 +8,7 @@ Bij deze leertaak horen deze deeltaken:
 
 * [Component](https://github.com/fdnd-task/do-not-repeat-yourself-component)
 * [Team Lead](do-not-repeat-yourself-team-lead)
+* [Schets je ontwikkeling](https://github.com/fdnd-task/do-not-repeat-yourself-schets-je-ontwikkeling)
 
 ## Doel van deze opdracht
 Je leert hoe je herbruikbare stukken code op een systematische manier ontsluit zodat jij en jouw mede frontenders ze kunnen gebruiken in andere projecten.
