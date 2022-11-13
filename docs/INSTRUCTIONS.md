@@ -6,7 +6,7 @@ Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die
 
 Bij deze leertaak horen deze deeltaken:
 
-* [Component](https://github.com/fdnd-task/do-not-repeat-yourself-component)
+* [Component](https://github.com/fdnd-task/dont-repeat-yourself-component)
 
 
 ## Doel van deze opdracht
