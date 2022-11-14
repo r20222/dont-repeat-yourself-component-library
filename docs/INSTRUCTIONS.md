@@ -4,7 +4,7 @@ Ontwikkel een website voor een opdrachtgever op basis van een component library.
 ## Context
 Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die je deels individueel en deels als team uitvoert voor een opdrachtgever.
 
-Bij deze leertaak horen deze deeltaken:
+Bij deze leertaak hoort de deeltaak:
 
 * [Component](https://github.com/fdnd-task/dont-repeat-yourself-component-building-block)
 
