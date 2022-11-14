@@ -2,7 +2,7 @@
 Ontwikkel een website voor een opdrachtgever op basis van een component library.
 
 ## Context
-Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die je individueel uitvoert voor een opdrachtgever.
+Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die je deels individueel en deels als team uitvoert voor een opdrachtgever.
 
 Bij deze leertaak horen deze deeltaken:
 
@@ -27,9 +27,9 @@ Het omarmen van deze ontwikkelstrategie vereist wel enig schakelen in de manier 
 
 ### Aanpak
 
-In deze leertaak vind je slechts een partiële instructie, namelijk voor het [opzetten van de structuur](#structuur-opzette) die nodig is om een component library als project in NPM te krijgen. Als dit gelukt is begint eigenlijk de leertaak pas. Je gaat je component library inzetten bij de [doorontwikkeling van projecten](#doorontwikkeling) (lees user-stories) voor jouw opdrachtgever.
+In deze leertaak vind je slechts een partiële instructie, namelijk voor het [opzetten van de structuur](#structuur-opzetten-team) die nodig is om een component library als project in NPM te krijgen. Als dit gelukt is begint eigenlijk de leertaak pas. Je gaat je component library inzetten bij de [doorontwikkeling van projecten](#doorontwikkeling-individueel) (lees user-stories) voor jouw opdrachtgever.
 
-#### Structuur opzetten
+#### Structuur opzetten (team)
 
 Het opzetten van de structuur voor een component library is een beetje een gedoe maar het loont als je dit eenmaal gedaan hebt.
 
@@ -48,7 +48,7 @@ Het opzetten van de structuur voor een component library is een beetje een gedoe
 11. Initialiseer een SvelteKit skeletten project.
 11. Link jouw package als dependancy door `npm install organisatie/package` uit te voeren.
 12. Importeer jouw component door `import { HelloWorld } from 'organisatie/package`, zet het ergens neer met `<HelloWorld />` en test of het werkt.
-13. Ga verder bij [Doorontwikkeling](#doorontwikkeling)
+13. Ga verder bij [Doorontwikkeling](#doorontwikkeling-individueel)
 
 ##### Bronnen:
 - [Don’t Repeat Yourself](http://wiki.c2.com/?DontRepeatYourself)
@@ -60,7 +60,7 @@ Het opzetten van de structuur voor een component library is een beetje een gedoe
 - [How to Publish Your First npm Package](https://bretcameron.medium.com/how-to-publish-your-first-npm-package-b224296fc57b)
 - [How to publish packages to npm (the way the industry does things)](https://zellwk.com/blog/publish-to-npm/)
 
-#### Doorontwikkeling
+#### Doorontwikkeling (individueel)
 
 Als de structuur staat kan je verder gaan aan de ontwikkeling voor jouw opdrachtgever. Eventueel kan je wat tijd besteden aan het overhevelen van herhaalde stukken code uit je oude projecten maar dat hoeft niet per se, je kunt ook opnieuw beginnen.
 
