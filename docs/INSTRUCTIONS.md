@@ -77,7 +77,7 @@ Focus sprint 16 - De focus van deze sprint ligt op het hergebruik van code en on
 Voor deze leertaak gelden de gedragscriteria voor sprint 16: 
 
 * Methodisch handelen: Je richt in overleg projecten in volgens de development-lifecycle
-* ~~Samenwerken: Je draagt verantwoording voor eigen resultaten, benoemt teamresultaten en informeert belanghebbenden over de voortgang~~
+* Samenwerken: Je draagt verantwoording voor eigen resultaten, benoemt teamresultaten en informeert belanghebbenden over de voortgang
 * Probleemoplossend vermogen: Je selecteert de juiste principes, conventies en best-practices op het gebied van frontend, interface design en vormgeving om een passende oplossing voor een opdrachtgever te realiseren
 * Lerend vermogen: Je volgt aangeboden internationale ontwikkelingen in het vakgebied en maakt onder begeleiding keuzes over eigen ontwikkeling
 
