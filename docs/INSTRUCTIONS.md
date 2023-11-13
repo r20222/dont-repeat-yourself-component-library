@@ -33,8 +33,6 @@ In deze leertaak vind je slechts een partiële instructie, namelijk voor het [op
 
 Het opzetten van de structuur voor een component library is een beetje een gedoe maar het loont als je dit eenmaal gedaan hebt.
 
-**Disclaimer: De voorbeelden die wij geven zijn in SvelteKit, voel je vrij een ander framework te gebruiken als je daar in verder wilt!**
-
 1. Fork deze leertaak, in deze leertaak ga je de implementatie van de component library maken. Met andere woorden, je linkt in deze repository een andere repository welke de component library bevat.
 2. Maak een nieuwe repository aan op jouw GitHub omgeving, geef deze een logische naam, bijvoorbeeld: fdnd-components, bij de volgende stappen staat *CLib* als het om deze ‘andere’ repository gaat.
 3. *CLib* Initialiseer een nieuw SvelteKit library project!
