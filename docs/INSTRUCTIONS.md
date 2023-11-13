@@ -6,7 +6,7 @@ Deze leertaak hoort bij sprint 16 Don't Repeat Yourself. Dit is een opdracht die
 
 Bij deze leertaak hoort de deeltaak:
 
-* [Component](https://github.com/fdnd-task/dont-repeat-yourself-component-building-block)
+* [Component Building Block](https://github.com/fdnd-task/dont-repeat-yourself-component-building-block)
 
 ## Doel van deze opdracht
 Je leert hoe je herbruikbare stukken code op een systematische manier ontsluit zodat jij en jouw mede frontenders ze kunnen gebruiken in andere projecten.
