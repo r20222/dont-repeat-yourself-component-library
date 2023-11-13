@@ -70,16 +70,9 @@ Als de structuur staat kan je verder gaan aan de ontwikkeling voor jouw opdracht
 
 ## Criteria
 
-Focus sprint 16 - De focus van deze sprint ligt op het hergebruik van code en ontwerpelementen.
-
-Voor deze leertaak gelden de gedragscriteria voor sprint 16: 
-
-* Methodisch handelen: Je richt in overleg projecten in volgens de development-lifecycle
-* Samenwerken: Je draagt verantwoording voor eigen resultaten, benoemt teamresultaten en informeert belanghebbenden over de voortgang
-* Probleemoplossend vermogen: Je selecteert de juiste principes, conventies en best-practices op het gebied van frontend, interface design en vormgeving om een passende oplossing voor een opdrachtgever te realiseren
-* Lerend vermogen: Je volgt aangeboden internationale ontwikkelingen in het vakgebied en maakt onder begeleiding keuzes over eigen ontwikkeling
 
 Deze opdracht is done als:
+
 - [ ] je een component library hebt gemaakt.
 - [ ] je hebt gewerkt volgens de verschillende fases van de development-lifecycle
 - [ ] je hebt je werk gedocumenteerd in de Readme en Wiki (user story, ontwerpbeslissingen, schetsen en code voorbeelden)
