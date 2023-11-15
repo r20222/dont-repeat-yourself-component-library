@@ -3,22 +3,34 @@
 	import { Chart } from 'chart.js/auto';
 	export let data;
 	let trashdata = data;
+	// let isJavaScriptEnabled = true;
+	
 
 	// de slice -4 pakt de laatste vier months
 	const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-4);
-	console.log(laatsteVierMaanden[0].debris_extracted);
+	// console.log(laatsteVierMaanden[0].debris_extracted);
+
 
 	// Gegevens en configuratie
-	const labels = [
-		laatsteVierMaanden[0].month,
-		laatsteVierMaanden[1].month,
-		laatsteVierMaanden[2].month,
-		laatsteVierMaanden[3].month
-	];
+	// const labels = [
+	// 	laatsteVierMaanden[0].month,
+	// 	laatsteVierMaanden[1].month,
+	// 	laatsteVierMaanden[2].month,
+	// 	laatsteVierMaanden[3].month
+	// ];
 
+	// gebruik de Intl browser API om nummers om te zetten in maandnaam
+	const monthNames = laatsteVierMaanden.map(item => {
+		const date = new Date();
+		date.setMonth(item.month - 1); // Maanden zijn zero-based in JavaScript
+
+		return new Intl.DateTimeFormat('nl-NL', { month: 'long' }).format(date);
+	});
+
+console.log(monthNames);
 
 	data = {
-		labels: labels,
+		labels: monthNames,
 		datasets: [
 			{
 				label: 'Trash collected in kilogram',
@@ -44,21 +56,48 @@
 			Chart.defaults.color = '#143653';
 		}
 	}
+	
 	onMount(() => {
 		configureChartColor();
-
+		//  let data = data;
 		const ctx = document.getElementById('line-chart').getContext('2d');
 		new Chart(ctx, {
 			type: 'line',
 			data: data
 		});
+
+		
 	});
 </script>
 
 <h2>Trash collected over time</h2>
 <p>In kilogram</p>
 
+
+
+<!-- {#if isJavaScriptEnabled} -->
 <canvas id="line-chart" width="400" height="200" />
+
+<!-- {:else} -->
+<table>
+	<tr>
+		<th>{monthNames[0]}</th>
+		<td>{laatsteVierMaanden[0].debris_extracted}</td>
+	</tr>
+	<tr>
+		<th>{monthNames[1]}</th>
+		<td>{laatsteVierMaanden[1].debris_extracted}</td>
+	</tr>
+	<tr>
+		<th>{monthNames[2]}</th>
+		<td>{laatsteVierMaanden[2].debris_extracted}</td>
+	</tr>
+	<tr>
+		<th>{monthNames[3]}</th>
+		<td>{laatsteVierMaanden[3].debris_extracted}</td>
+	</tr>
+</table>
+<!-- {/if} -->
 
 <style>
 	:root {
