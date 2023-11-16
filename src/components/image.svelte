@@ -1,20 +1,32 @@
 <script>
+    import { onMount } from 'svelte';
     export let data
+
+    // onMount(() =>{
+    //     var buttonLeft = document.querySelector("button:first-of-type")
+    //     var buttonRight = document.querySelector("button:last-of-type")
+    //     buttonLeft.addEventListener("click", () => { })
+    //     buttonRight.addEventListener("click", () => { })
+        
+    // })
 </script>
 <section>
+    <!-- <button></button> -->
     <ul>
         {#each data as img}
             <li>
-                <img alt="" src="{img.url}">
+                <img alt="" src="{img.url}" id="{img.length}" loading="lazy">
             </li>
         {/each}
     </ul>
+    <!-- <button></button> -->
 </section>
 
 <style>
     section {
-        /* grid-area: auto; */
+        grid-area: image;
         width: 100%;
+        height: 100%;
         overflow: hidden;
     }
     ul {
@@ -23,9 +35,9 @@
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        position: absolute;
     }
     li {
-        width: 100%;
         scroll-snap-align: start;
         flex-shrink: 0;
         transform-origin: center center;
@@ -33,13 +45,25 @@
 
     }
     img {
-        width: 100%; /* veranderd van 10rem naar 100% om het mooi in de container te laten passen */
-        height: 100%;
-        object-fit: cover;
+        width: 100%;
+        height: 30em;
+        object-fit: fill;
     }
-
-    img::before {
-        
+    /* button {
+        background-color: white;
+        width: 5em;
+        height: 5em;
+        border-radius: 5em;
+        position: relative;
+        left: 0;
+        top: 14em;
+        display: block;
+        border: 1px white solid;
+        z-index: 2;
     }
     
+    ul+button {
+        left: 32em;
+        top: 9em;
+    } */
 </style>
