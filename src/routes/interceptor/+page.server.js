@@ -25,7 +25,9 @@ export async function load({ url, params }) {
         id
         slug
         riverImage {
-          url
+          image {
+            url
+          }
         }
         riverTitle
         riverInfoText {

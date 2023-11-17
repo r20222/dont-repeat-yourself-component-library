@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     export let data
-
+    console.log(data[0].image[0])
     // onMount(() =>{
     //     var buttonLeft = document.querySelector("button:first-of-type")
     //     var buttonRight = document.querySelector("button:last-of-type")
@@ -15,7 +15,10 @@
     <ul>
         {#each data as img}
             <li>
-                <img alt="" src="{img.url}" id="{img.length}" loading="lazy">
+                <picture>
+                    <source srcset="{img.image[1].url}" type="image/webp">
+                    <img alt="" src="{img.image[0].url}" id="{img.length}" loading="lazy">     
+                </picture>
             </li>
         {/each}
     </ul>
@@ -64,6 +67,6 @@
     
     ul+button {
         left: 32em;
-        top: 9em;
+        top: 9em;   
     } */
 </style>
