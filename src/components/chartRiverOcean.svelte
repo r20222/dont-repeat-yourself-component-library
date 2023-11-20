@@ -1,59 +1,69 @@
 <script>
 	import { onMount } from 'svelte';
 	import { Chart } from 'chart.js/auto';
-    export let data
+	import SvgPlasticBottle from '/src/components/plastic-bottle-svg.svelte';
 
-	let chartInstance;
-    let oceanRiverData = data
+	export let data;
 
-// Data from endpoint /total
-
-// // "totals" {
-// //    "ocean_river_ratio": {
-// //         "percent_river": 65,
-// //          "percent_ocean": 35
-// //     }
-// //  }
-
-// Gegevens & configuratie 
-	data = {
-		labels: ['River', 'Ocean'],
-		datasets: [
-			{
-				label: 'Percentage of removed plastic',
-				data: [oceanRiverData.dataApi.totals.ocean_river_ratio.percent_river, oceanRiverData.dataApi.totals.ocean_river_ratio.percent_ocean],
-				backgroundColor: ['#5CC8DE', '#95D6E3'],
-				hoverOffset: 4
-			}
-		]
-	};
-
-	const config = {
-		type: 'doughnut',
-		data: data
-	};
-
-// Functie om de kleurinstelling voor Chart.js te configureren op basis van dark mode
-function configureChartColor() {
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			// Dark mode wordt gebruikt
-			Chart.defaults.color = 'white';
-		} else {
-			// Dark mode wordt niet gebruikt
-			Chart.defaults.color = '#143653';
-		}
-	}
-		
-
-onMount(() => {
-	configureChartColor();
-
-    const ctx = document.getElementById('donut-chart').getContext('2d');
-    chartInstance = new Chart(ctx, config);
-});
+	// let chartInstance;
+	// let oceanRiverData = data
 </script>
 
+<h2>Plastic removed by ocean and river systems</h2>
 
-	<canvas id="donut-chart" width="400" height="200" />
+<!-- show more info -->
+<button>Show more info</button>
+<p class="additional-info-ocean-river-systems">Additional ocean and river information: it's called The Ocean Cleanup 
+	but a lot of plastic finds its way into the ocean via rivers first. To prevent the plastic from reaching the ocean, 
+	we put inceptors in the most polluting rivers.</p>
 
+<!-- 2x SVG bottle graph  -->
+<div class="wrapper-svg-ocean-and-river">
 
+	<div class="wrapper-ocean-trash-removed">
+		<a href="/ocean"><SvgPlasticBottle  /></a> 
+		<div>
+			<p>Ocean</p>
+			<button>Show more info</button><!-- this needs to be hidden and shown when click/hover on i -->
+			<p class="add-info-ocean-systems">
+				The total amount of plastic removed by The Ocean Cleanup is..kg. The amount of plastic that is removed by the ocean system is ...kg. This means ..% of the total amount
+				of collected trash comes from the ocean.
+			</p>
+		</div>
+	</div>
+
+	<div class="wrapper-river-trash-removed">
+		<a href="/river"><SvgPlasticBottle /></a>
+		<div>
+			<p>River</p>
+			<button>Show more info</button><!-- this needs to be hidden and shown when click/hover on i -->
+			<p class="add-info-river-systems">
+				The total amount of plastic removed by The Ocean Cleanup is..kg. The amount of plastic removed by all river systems combined is ...kg. This means ..% of the
+				total amount of collected trash comes from rivers.
+			</p>
+		</div>
+	</div>
+
+</div>
+
+<style>
+
+/* SVG styling */
+.wrapper-svg-ocean-and-river {
+		background-color: green;
+		padding: 2em;
+		display: flex;
+	}
+
+	.wrapper-ocean-trash-removed {
+		background-color: lightblue;
+	}
+
+	.wrapper-river-trash-removed {
+		background-color: red;
+	}
+
+	/* SVG animations */
+
+	
+</style>
