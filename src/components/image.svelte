@@ -6,20 +6,19 @@
         var buttonRight = document.querySelector("button:last-of-type")
         var scroller = document.querySelector(".scroller")
         const itemWidth = document.querySelector('img').clientWidth;
-        console.log(scroller)
         buttonLeft.addEventListener("click", () => {
-            console.log(itemWidth)
-            scroller.scrollBy({left: -100, top: 0, behavior: 'smooth'})
+            scroller.scrollBy({left: -itemWidth, top: 0, behavior: 'smooth'})
         })
         buttonRight.addEventListener("click", () => {
-            console.log("hello")
-            scroller.scrollBy({left: 100, top: 0, behavior: 'smooth'})
+            scroller.scrollBy({left: itemWidth, top: 0, behavior: 'smooth'})
         })
         
     })
 </script>
 <section>
-    <button></button>
+    <button title="carrousel scroll left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"/></svg>
+    </button>
     <ul class="scroller">
         {#each data as img}
             <li>
@@ -30,7 +29,9 @@
             </li>
         {/each}
     </ul>
-    <button></button>
+    <button title="carrousel scroll right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg>
+    </button>
 </section>
 
 <style>
@@ -39,6 +40,7 @@
         width: 100%;
         height: 500px;
         overflow: hidden;
+        display: flex;
     }
     ul {
         display: flex;
