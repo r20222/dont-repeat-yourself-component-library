@@ -1,17 +1,17 @@
 <script>
     export let data
     export let text
-    console.log(text.dashboard.trashRemoved)
+    console.log(text.dashboard.trashRemoved.total)
 </script>
 
 <section class="box-1">
     <h2>{new Intl.NumberFormat().format(data.debris_extracted_total)} KG</h2>
-    <p>Trash removed in total</p>
+    <p>{text.dashboard.trashRemoved.total}</p>
 </section>
 
 <section class="box-2">
     <h2>{new Intl.NumberFormat().format(data.debris_extracted_last_30d)} KG</h2>
-    <p>Last 30 days removed</p>
+    <p>{text.dashboard.trashRemoved.month}</p>
 </section>
 
 <style>

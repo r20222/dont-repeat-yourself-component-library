@@ -15,10 +15,8 @@ export async function load({ url, params }) {
         id
       }
       trashRemoved {
-        trashRemovedText {
-          html
-          text
-        }
+        total
+        month
       }
       title
       river {

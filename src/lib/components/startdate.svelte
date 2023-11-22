@@ -4,7 +4,7 @@
 
 <section>
     <h2>{data.title}</h2>
-    <p>{data.date}</p>
+    <!-- <p>{new Intl.DateTimeFormat().format(data.date)}</p> -->
 </section>
 
 <style>

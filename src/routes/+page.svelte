@@ -1,8 +1,8 @@
 <script>
 	import Infotext from '../lib/components/infotext.svelte';
 	import TrashRemoved from '../lib/components/trash-removed.svelte';
-	import Map from '/src/components/map.svelte';
-	import Trashgraph from '/src/components/trashGraph.svelte';
+	import Map from '../lib/components/map.svelte';
+	import Trashgraph from '../lib/components/trashGraph.svelte';
 	import ChartContinents from "../lib/components/chartContinents.svelte";
 	import ChartRiverOcean from "../lib/components/chartRiverOcean.svelte";
 	export let data;
