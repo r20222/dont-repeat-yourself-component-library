@@ -69,14 +69,14 @@
         border-radius: 5em;
         position: relative;
         left: 0;
-        top: 14em;
+        top: 10em;
         display: block;
         border: 1px white solid;
         z-index: 2;
     }
     
     ul+button {
-        top: 9em;   
-        left: 20em;
+        top: 10em;   
+        
     }
 </style>

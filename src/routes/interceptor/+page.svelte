@@ -1,18 +1,15 @@
 <script>
-    import TrashRemovedOcean from '../../components/trash-removed.svelte';
-    import Infotext from '../../components/infotext.svelte';
-	import TrashRemoved from '../../components/trash-removed.svelte';
-    import Image from '../../components/image.svelte';
-	import { cubicOut } from 'svelte/easing';
+    import Infotext from '../../lib/components/infotext.svelte';
+	import TrashRemoved from '../../lib/components/trash-removed.svelte';
+    import Image from '../../lib/components/image.svelte';
     export let data
 
 </script>
 
 <section>
-    <h2>Interceptor {data.currentInterceptor[0].name}</h2>
-    <TrashRemovedOcean data={data.currentInterceptor[0]}/>
+    <h2>{data.currentInterceptor[0].name}</h2>
     <Infotext data={data.currentInterceptorHygraph[0].riverInfoText} />
-    <TrashRemoved data={data.currentInterceptor[0]} />
+    <TrashRemoved data={data.currentInterceptor[0]} text={data.dataHygraph} />
     <Image data={data.currentInterceptorHygraph[0].riverImage} />
     <div class="map">
         Hier kan de map komen.

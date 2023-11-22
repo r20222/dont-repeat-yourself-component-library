@@ -14,7 +14,7 @@
 
 <section>
     <h2>{data.dataApi.systems[0]. name}</h2>
-    <TrashRemovedOcean data={data.dataApi.systems[0]} />
+    <TrashRemovedOcean data={data.dataApi.systems[0]} text={data.dataHygraph} />
     <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
     <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
     <LastPortCall data={data} />

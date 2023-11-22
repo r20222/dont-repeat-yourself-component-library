@@ -55,6 +55,6 @@ export async function load({ url, params }) {
     return interceptor.id == url.searchParams.get('id')
   })
   
-  return {currentInterceptorHygraph, currentInterceptor}
+  return {currentInterceptorHygraph, currentInterceptor, dataHygraph}
 }
 

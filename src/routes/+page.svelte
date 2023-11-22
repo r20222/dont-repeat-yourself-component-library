@@ -1,10 +1,10 @@
 <script>
-	import Infotext from '../components/infotext.svelte';
-	import TrashRemoved from '../components/trash-removed.svelte';
+	import Infotext from '../lib/components/infotext.svelte';
+	import TrashRemoved from '../lib/components/trash-removed.svelte';
 	import Map from '/src/components/map.svelte';
 	import Trashgraph from '/src/components/trashGraph.svelte';
-	import ChartContinents from "../components/chartContinents.svelte";
-	import ChartRiverOcean from "../components/chartRiverOcean.svelte";
+	import ChartContinents from "../lib/components/chartContinents.svelte";
+	import ChartRiverOcean from "../lib/components/chartRiverOcean.svelte";
 	export let data;
 </script>
 
@@ -31,7 +31,7 @@
             </form>
         </section>
 
-        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
+        <TrashRemoved data={data.dataApi.totals} text={data.dataHygraph}></TrashRemoved>
 
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
