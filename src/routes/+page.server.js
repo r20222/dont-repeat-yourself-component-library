@@ -17,10 +17,8 @@ export async function load() {
           }
         }
         trashRemoved {
-          trashRemovedText {
-            html
-            text
-          }
+          month
+          total
         }
         title
       }
