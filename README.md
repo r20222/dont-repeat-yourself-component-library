@@ -28,6 +28,7 @@ Dit project is gemaakt met de volgende technologiën:
 3. npm install graphql-request graphql
 4. npm install chart.js
 5. npm install mapbox
+6. npm install mapbox-gl
    
 ## Gebruik 💻
 
