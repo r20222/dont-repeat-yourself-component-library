@@ -8,18 +8,14 @@
 	// let chartInstance;
 	// let oceanRiverData = data
 
-// 	document.querySelector("#my-checkbox").addEventListener("click", function() {
-//   const info = document.querySelector("#my-info");
-//   info.style.display = info.style.display === "none" ? "block" : "none";
-// });
-
-// document.querySelector("#my-checkbox").addEventListener("click", function() {
-//   const info = document.querySelector("#my-info");
-//   info.style.display = "block";
-// });
 </script>
 
-<h2>Plastic removed by ocean and river systems</h2>
+<!-- * needs dynamic content -->
+<!-- 1 = atom -->
+<!-- 2 = molecule -->
+<!-- 3 = organism -->
+
+<h2>Plastic removed by ocean and river systems</h2><!-- * -->
 
 <!-- show more info -->
 <section>
@@ -27,17 +23,17 @@
 	<label for="my-checkbox">Show more info</label>
 
 	<div id="my-info" style="display: none;">
-		<p>Additional ocean and river information: it's called The Ocean Cleanup 
-			but a lot of plastic finds its way into the ocean via rivers first. To prevent the plastic from reaching the ocean, 
-			we've put inceptors in the most polluting rivers.	</p>
+		<p>We named our company "The Ocean Cleanup" but a lot of plastic finds its way into the ocean via rivers first. To prevent the plastic from reaching the ocean, 
+			we've put inceptors in the most polluting rivers. 
+			<a href="/">Learn more</a>
+		</p>
 	</div>
 </section>
-
 
 <!-- 2x SVG bottle graph  -->
 <div class="wrapper-graph-ocean-river">
 
-	<section class="wrapper-ocean-trash-removed" >	<!-- style="--percentageVoorAnimatie:{percentage}" -->
+	<section class="wrapper-ocean-trash-removed" >	<!-- style="--percentageBeforeAnimation:{percentage}" -->
 		<a href="/ocean"><SvgPlasticBottle  /></a> 
 
 		<div>
@@ -61,7 +57,7 @@
 				
 			<details class="more-info-river">
 				<summary>More info</summary>
-				The total amount of plastic removed by The Ocean Cleanup is..kg. The amount of plastic removed by all river systems combined is ...kg. This means ..% of the
+				The total amount of plastic removed by The Ocean Cleanup is..kg. <!-- * --> The amount of plastic removed by all river systems combined is ...kg. <!-- * --> This means ..% <!-- * --> of the
 				total amount of collected trash comes from rivers.
 			</details>
 		</div>
@@ -69,18 +65,8 @@
 
 </div>
 
-<label class="switch">
-	<input type="checkbox">
-	<span class="slider round"></span>
-  </label>
-  <span>Show more info</span>
-  <div id="my-info" style="display: none;">
-	<p>The total amount of plastic removed by The Ocean Cleanup is..kg. The amount of plastic removed by all river systems combined is ...kg. This means ..% of the
-		total amount of collected trash comes from rivers.</p>
-</div>
 
 <style>
-
 
 /* SVG styling */
 .wrapper-graph-ocean-river {
@@ -106,7 +92,14 @@
 		padding: 0 0 2rem 0;
 	}
 
+	/* Details styling */
+
 	/* SVG animations */
+
+	/* Container/media queries */
+
+	/*  */
+
 
 	
 </style>
