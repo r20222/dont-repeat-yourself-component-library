@@ -30,14 +30,4 @@
     .box-2 {
         grid-area: box-2;
     }
-    h2 {
-        font-size: 1.6rem;
-        color: var(--textColor);
-        font-family: 'Roboto Mono', monospace;
-    }
-    p {
-        font-size: 1.6rem;
-        color: var(--textColor);
-        font-family: 'Roboto Mono', monospace;
-    }
 </style>

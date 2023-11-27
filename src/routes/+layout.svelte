@@ -96,7 +96,6 @@
      
 
     :global(html) {
-    font-size: 62.5%;
     scroll-behavior: smooth;
     }
 
@@ -117,6 +116,11 @@
     a {
     text-decoration: none;
     }
+
+    p {
+		font-size: 1.3rem;
+		line-height: 1.4;
+	}
 
     /* Nav */
     header {
