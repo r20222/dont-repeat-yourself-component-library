@@ -19,15 +19,12 @@
 
 <!-- show more info -->
 <section>
-	<input type="checkbox" id="my-checkbox">
-	<label for="my-checkbox">Show more info</label>
-
-	<div id="my-info" style="display: none;">
-		<p>We named our company "The Ocean Cleanup" but a lot of plastic finds its way into the ocean via rivers first. To prevent the plastic from reaching the ocean, 
-			we've put inceptors in the most polluting rivers. 
-			<a href="/">Learn more</a>
-		</p>
-	</div>
+	<details class="more-info-systems">
+		<summary>More info</summary>
+		We named our company "The Ocean Cleanup" but a lot of plastic finds its way into the ocean via rivers first. To prevent the plastic from reaching the ocean, 
+		we've put inceptors in the most polluting rivers. 
+		<a href="/">Learn more</a>
+	</details>
 </section>
 
 <!-- 2x SVG bottle graph  -->
@@ -37,7 +34,7 @@
 		<a href="/ocean"><SvgPlasticBottle  /></a> 
 
 		<div>
-			<p>Ocean	<!-- {percentage} --> </p>
+			<p>Ocean ..%	<!-- {percentage} --> </p>
 
 			<details class="more-info-ocean">
 				<summary>More info</summary>
@@ -53,7 +50,7 @@
 		<a href="/river"><SvgPlasticBottle /></a>
 
 		<div>
-			<p>River</p> <!-- {percentage} -->
+			<p>River ..%</p> <!-- {percentage} -->
 				
 			<details class="more-info-river">
 				<summary>More info</summary>
