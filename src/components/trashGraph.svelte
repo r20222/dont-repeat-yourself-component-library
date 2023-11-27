@@ -6,7 +6,7 @@
 
 	// de slice -4 pakt de laatste vier months
 	const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-4);
-	console.log(laatsteVierMaanden[0].debris_extracted);
+	(laatsteVierMaanden[0].debris_extracted);
 
 	// Gegevens en configuratie
 	const labels = [
