@@ -59,9 +59,6 @@
 </footer>
 
 <style>
-    /* Roboto font */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
     /* Proxima font */
     @font-face {
     font-family: 'Proxima';
