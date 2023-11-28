@@ -97,6 +97,15 @@
 </section>
 
 <style>
+	section {
+		grid-area: share;
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		background-color: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		transition: 0.2s;
+	}
+
 	.pulse-marker {
 		background: black;
 		border-radius: 50%;
@@ -194,7 +203,7 @@
 	table {
 		width: 100%;
 	}
-	
+
 	.dot {
 		width: 40%;
 	}
@@ -217,6 +226,4 @@
 	.amount {
 		width: 20%;
 	}
-
-	
 </style>
