@@ -117,7 +117,6 @@
 
 
 {#if isEnabled}
-	<!-- <canvas id="uniqueCanvasId" width="400" height="200" /> -->
 	<section id="container"></section>
 {:else}
 	<table >
@@ -172,6 +171,7 @@
 	#container {
     width: 100%;
     height: 500px; 
+	font-size: 140%;
     }
 	table th{
 		display: flex;
