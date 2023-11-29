@@ -58,8 +58,6 @@
 
     }
     img {
-        width: 100%;
-        height: 30em;
         object-fit: fill;
     }
     button {

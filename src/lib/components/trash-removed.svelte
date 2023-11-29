@@ -1,7 +1,6 @@
 <script>
     export let data
     export let text
-    console.log(text.dashboard.trashRemoved.total)
 </script>
 
 <section class="box-1">

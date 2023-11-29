@@ -23,7 +23,9 @@ export async function load() {
           }
         }
         oceanImage {
-          url
+          image {
+            url
+          }
         }
         oceanExtractionDate {
           markdown

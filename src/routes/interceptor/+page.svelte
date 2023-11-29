@@ -1,7 +1,7 @@
 <script>
     import Infotext from '../../lib/components/infotext.svelte';
 	import TrashRemoved from '../../lib/components/trash-removed.svelte';
-    import Image from '../../lib/molucles/image.svelte';
+    import Image from '../../lib/molecules/image.svelte';
     export let data
 
 </script>
