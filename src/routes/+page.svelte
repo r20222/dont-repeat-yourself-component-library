@@ -13,23 +13,28 @@
 </svelte:head>
 
 <section class="main">
-  
-    <div class="container2">
-        <!-- Blue line -->
-        <div class="menu">
-            <div class="line"></div>
-        </div>
+	<div class="container2">
+		<!-- Blue line -->
+		<div class="menu">
+			<div class="line" />
+		</div>
 
-        <!-- Title + Searchbar -->
-        <section class="header-dashboard">
+		<!-- Title + Searchbar -->
+		<section class="header-dashboard">
+			<h1>{data.dataHygraph.dashboard.title}</h1>
+			<form class="search" action="/" method="GET">
+				<input type="text" name="search" placeholder="Search.." />
+				<input
+					type="submit"
+					name="search-button"
+					aria-label="search button"
+					class="search-button"
+				/>
+				<!-- voeg een zoekicoon toe -->
+			</form>
+		</section>
 
-            <h1>{data.dataHygraph.dashboard.title}</h1>
-            <form class="search" action="/" method="GET">
-                <input type="text" name="search" placeholder="Search..">
-                <input type="submit" name="search-button" aria-label="search button" class="search-button">
-                    <!-- voeg een zoekicoon toe -->
-            </form>
-        </section>
+		<TrashRemoved data={data.dataApi.totals} />
 
         <TrashRemoved data={data.dataApi.totals} text={data.dataHygraph}></TrashRemoved>
 
@@ -41,8 +46,8 @@
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-            <h2>Plastic removed per continent</h2>
-			<ChartContinents data={data} />
+			<h2>Plastic removed per continent</h2>
+			<ChartContinents {data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->
@@ -56,81 +61,7 @@
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />
 
-		<!-- Share: table system statuses -->
-		<section class="panel share">
-			<h2>System statuses</h2>
-			<table>
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>In operation</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>10 interceptors</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>Harvesting</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 ocean system</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker blue" />
-								<h3>Installed for testing</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Planned</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Contract signed</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-			</table>
-		</section>
+		<SystemStatus data={data} />
 
 		<!-- More: table more information links -->
 		<section class="panel more">
@@ -230,40 +161,41 @@
 		font-family: 'Proxima', sans-serif;
 	}
 
-    :root {
-    --darkBlue: #143653;
-    --trashRemovedBackground: white;
-    --lightBlue: #5CC8DE;
-    --whiteColor: #ffffff;
-    --lightGray: #f7f7f7;
-    --accentGray: rgb(228, 228, 228);
-    --textColor: #143653;
-    --boxShadow: rgba(128, 128, 128, 0.132);
-    --color: rgb(212, 212, 212);
-    --textSize: 1.2rem;
-    --iconSize: 2rem;
-    }
+	:root {
+		--darkBlue: #143653;
+		--trashRemovedBackground: white;
+		--lightBlue: #5cc8de;
+		--whiteColor: #ffffff;
+		--lightGray: #f7f7f7;
+		--accentGray: rgb(228, 228, 228);
+		--textColor: #143653;
+		--boxShadow: rgba(128, 128, 128, 0.132);
+		--color: rgb(212, 212, 212);
+		--textSize: 1.2rem;
+		--iconSize: 2rem;
+	}
 
-        /* Als darkmode de standaard instelling is */
-        @media (prefers-color-scheme: dark) {
-        :root {
-        --darkBlue: #ffffff;
-        --trashRemovedBackground: #143653;
-        --lightBlue: #5CC8DE;
-        --whiteColor: #143653;
-        --lightGray: #0D2437;
-        --accentGray: rgb(228, 228, 228);
-        --textColor: #ffffff;
-        --boxShadow: rgba(128, 128, 128, 0.0);
-        --color: rgb(212, 212, 212);
-        --textSize: 1.2rem;
-        --iconSize: 2rem;
-        } 
-  }
+	/* Als darkmode de standaard instelling is */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--darkBlue: #ffffff;
+			--trashRemovedBackground: #143653;
+			--lightBlue: #5cc8de;
+			--whiteColor: #143653;
+			--lightGray: #0d2437;
+			--accentGray: rgb(228, 228, 228);
+			--textColor: #ffffff;
+			--boxShadow: rgba(128, 128, 128, 0);
+			--color: rgb(212, 212, 212);
+			--textSize: 1.2rem;
+			--iconSize: 2rem;
+		}
+	}
 
-    :global(html) {
-    scroll-behavior: smooth;
-    }
+	:global(html) {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
 
 	:global(body) {
 		background-color: var(--lightGray);
@@ -300,21 +232,20 @@
 			'box-1 box-2'
 			'dashboard-info dashboard-info'
 			'map map'
-			'share share'	
-			'box-3 box-3'	
+			'share share'
+			'box-3 box-3'
 			'box-4 box-4'
-			'grafiek grafiek'	
-			'more more'		
+			'grafiek grafiek'
+			'more more';
 	}
 
-    .panel {
-    border-radius: .5rem;
-    padding: 1.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    transition: .2s;
-    }
-
+	.panel {
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		background-color: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		transition: 0.2s;
+	}
 
 	/* Grid areas */
 	.header-dashboard {
@@ -376,7 +307,7 @@
 
 	/* boxes styling */
 	.box-3,
-	.box-4{
+	.box-4 {
 		font-size: 1.6rem;
 		color: var(--lightBlue);
 		font-family: 'Roboto Mono', monospace;
@@ -469,162 +400,43 @@
 		}
 	}
 
-	/* Pulse */
-	.pulse-marker {
-		background: black;
-		border-radius: 50%;
-		height: 1rem;
-		width: 1rem;
-		transform: scale(1);
-		animation: pulse-black 2s infinite;
-	}
-
-	.pulse-marker.green {
-		background: rgb(132, 206, 95);
-		box-shadow: 0 0 0 0 rgb(132, 206, 95);
-		animation: pulse-green 2s infinite;
-	}
-
-	.pulse-marker.blue {
-		background: var(--lightBlue);
-		box-shadow: 0 0 0 0 var(--lightBlue);
-		animation: pulse-blue 2s infinite;
-	}
-
-	.pulse-marker.gray {
-		background: rgb(176, 176, 176);
-		box-shadow: 0 0 0 0 rgb(176, 176, 176);
-		animation: pulse-gray 2s infinite;
-	}
-
-	.pulse-container {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 0.3rem;
-	}
-
-	@keyframes pulse-green {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgb(132, 206, 95);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+	@media (min-width: 700px) {
+		.container2 {
+			margin: 8rem 1.5rem 1.5rem 1.5rem;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			/* grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr; */
+			gap: 1.2rem;
+			grid-template-areas:
+				'menu menu menu menu'
+				'header-dashboard header-dashboard header-dashboard header-dashboard'
+				'box-1 box-1 box-2 box-2'
+				'dashboard-info dashboard-info map map'
+				'dashboard-info dashboard-info map map'
+				'share share share share'
+				'box-3 box-3 box-4 box-4'
+				'grafiek grafiek grafiek more';
 		}
 	}
 
-	@keyframes pulse-blue {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 var(--lightBlue);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-		}
-	}
-
-	@keyframes pulse-gray {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgb(176, 176, 176);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+	@media (min-width: 992px) {
+		.container2 {
+			margin: 5rem 2rem 2rem 22.3rem;
+			grid-template-columns: repeat(6, 1fr);
+			/* grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr; */
+			grid-template-areas:
+				'menu menu menu menu menu menu'
+				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
+				'box-1 box-1 box-1 box-2 box-2 box-2'
+				'dashboard-info dashboard-info map map map map'
+				'share share share share share share'
+				'box-3 box-3 box-3 box-4 box-4 box-4'
+				'grafiek grafiek grafiek more more more';
 		}
 	}
 
-	/* System statuses */
-	table {
-		width: 100%;
-	}
-
-	tr {
-		height: 2.5rem;
-	}
-
-	.dot {
-		width: 40%;
-	}
-
-	.status-pulse {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.amount h4 {
-		font-family: 'Roboto', monospace;
-		color: var(--lightBlue);
-		font-weight: 500;
-		font-size: 1.45rem;
-	}
-
-	.amount {
-		width: 20%;
-	}
-
-    @media (min-width:700px) {
-        .container2 {
-        margin: 8rem 1.5rem 1.5rem 1.5rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr; */
-        gap: 1.2rem;
-        grid-template-areas:
-			"menu menu menu menu"
-			"header-dashboard header-dashboard header-dashboard header-dashboard"
-			"box-1 box-1 box-2 box-2"
-			"dashboard-info dashboard-info map map"
-			"dashboard-info dashboard-info map map"
-			"share share share share"
-			"box-3 box-3 box-4 box-4"
-			"grafiek grafiek grafiek more"
-    }
-    }
-
-    @media (min-width:992px) {
-    .container2 {
-        margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: repeat(6, 1fr);
-        /* grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr; */
-        grid-template-areas:
-        "menu menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "box-1 box-1 box-1 box-2 box-2 box-2"
-        "dashboard-info dashboard-info map map map map"
-		"share share share share share share"
-        "box-3 box-3 box-3 box-4 box-4 box-4"
-        "grafiek grafiek grafiek more more more";
-    }
-	}
-
-
-    /* Breakpoints large screen */
-    @media (min-width:1200px) {
-
+	/* Breakpoints large screen */
+	@media (min-width: 1200px) {
 		.more {
 			grid-area: more;
 		}
@@ -637,11 +449,11 @@
 			padding: 1.5rem;
 		}
 
-		.box-4{
+		.box-4 {
 			font-size: 3rem;
 		}
 
-		.box-3{
+		.box-3 {
 			font-size: 2.5rem;
 		}
 
