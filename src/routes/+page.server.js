@@ -17,11 +17,8 @@ export async function load() {
           }
         }
         trashRemoved {
-          month
           total
-        }
-        chartRiverOcean {
-          titel
+          month
         }
         title
       }
