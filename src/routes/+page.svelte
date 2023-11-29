@@ -5,6 +5,7 @@
 	import Trashgraph from '../lib/components/trashGraph.svelte';
 	import ChartContinents from "../lib/components/chartContinents.svelte";
 	import ChartRiverOcean from "../lib/components/chartRiverOcean.svelte";
+	import SystemStatus from "../lib/components/system-status.svelte"
 	export let data;
 </script>
 
@@ -34,7 +35,7 @@
 			</form>
 		</section>
 
-		<TrashRemoved data={data.dataApi.totals} />
+		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
 
         <TrashRemoved data={data.dataApi.totals} text={data.dataHygraph}></TrashRemoved>
 

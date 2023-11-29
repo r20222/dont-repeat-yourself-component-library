@@ -20,6 +20,9 @@ export async function load() {
           total
           month
         }
+        chartRiverOcean {
+          titel
+        }
         title
       }
     }

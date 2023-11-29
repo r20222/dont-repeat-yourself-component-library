@@ -1,9 +1,10 @@
 <script>
 	// import { onMount } from 'svelte';
-	import SvgPlasticBottle from '$lib/atoms/plastic-bottle-svg.svelte';
+	import SvgPlasticBottle from '../atoms/plastic-bottle-svg.svelte';
 
 	export let data;
 
+		console.log(data)
 	// data.riverDataJson.systems.forEach( system => {
 	// 	totalTrashKgRiver.push(system.debris_extracted_total)
 	// });
