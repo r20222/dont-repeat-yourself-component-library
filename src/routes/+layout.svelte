@@ -66,15 +66,12 @@
 <footer />
 
 <style>
-	/* Roboto font */
-	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-	/* Proxima font */
-	@font-face {
-		font-family: 'Proxima';
-		src: url('/ProximaNovaFont.otf') format('opentype') weight('normal');
-		src: url('/Proxima-Nova-Bold.otf') format('opentype') weight('bold');
-	}
+    /* Proxima font */
+    @font-face {
+    font-family: 'Proxima';
+    src: url("/ProximaNovaFont.otf") format("opentype") weight("normal");
+    src: url("/Proxima-Nova-Bold.otf") format("opentype") weight("bold");
+    }
 
 	/* Base */
 	* {

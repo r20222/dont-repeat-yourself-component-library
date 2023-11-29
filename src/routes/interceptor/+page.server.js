@@ -15,15 +15,17 @@ export async function load({ url, params }) {
         id
       }
       trashRemoved {
-        month
         total
+        month
       }
       title
       river {
         id
         slug
         riverImage {
-          url
+          image {
+            url
+          }
         }
         riverTitle
         riverInfoText {
@@ -51,6 +53,6 @@ export async function load({ url, params }) {
     return interceptor.id == url.searchParams.get('id')
   })
   
-  return {currentInterceptorHygraph, currentInterceptor}
+  return {currentInterceptorHygraph, currentInterceptor, dataHygraph}
 }
 

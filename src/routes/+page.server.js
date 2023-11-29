@@ -17,8 +17,8 @@ export async function load() {
           }
         }
         trashRemoved {
-          month
           total
+          month
         }
         title
       }

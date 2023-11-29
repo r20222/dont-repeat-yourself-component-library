@@ -1,15 +1,16 @@
 <script>
     export let data
+    export let text
 </script>
 
 <section class="box-1">
-    <h2>{data.debris_extracted_total} KG</h2>
-    <p>Trash removed in total</p>
+    <h2>{new Intl.NumberFormat().format(data.debris_extracted_total)} KG</h2>
+    <p>{text.dashboard.trashRemoved.total}</p>
 </section>
 
 <section class="box-2">
-    <h2>{data.debris_extracted_last_30d} KG</h2>
-    <p>Last 30 days removed</p>
+    <h2>{new Intl.NumberFormat().format(data.debris_extracted_last_30d)} KG</h2>
+    <p>{text.dashboard.trashRemoved.month}</p>
 </section>
 
 <style>
@@ -27,15 +28,5 @@
 
     .box-2 {
         grid-area: box-2;
-    }
-    h2 {
-        font-size: 1.6rem;
-        color: var(--textColor);
-        font-family: 'Roboto Mono', monospace;
-    }
-    p {
-        font-size: 1.6rem;
-        color: var(--textColor);
-        font-family: 'Roboto Mono', monospace;
     }
 </style>

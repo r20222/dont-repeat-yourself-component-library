@@ -1,11 +1,10 @@
 <script>
-	import Infotext from '../components/infotext.svelte';
-	import TrashRemoved from '../components/trash-removed.svelte';
-	import Map from '/src/components/map.svelte';
-	import Trashgraph from '/src/components/trashGraph.svelte';
-	import ChartContinents from '../components/chartContinents.svelte';
-	import ChartRiverOcean from '../components/chartRiverOcean.svelte';
-	import SystemStatus from '../components/system-status.svelte';
+	import Infotext from '../lib/components/infotext.svelte';
+	import TrashRemoved from '../lib/components/trash-removed.svelte';
+	import Map from '../lib/components/map.svelte';
+	import Trashgraph from '../lib/components/trashGraph.svelte';
+	import ChartContinents from "../lib/components/chartContinents.svelte";
+	import ChartRiverOcean from "../lib/components/chartRiverOcean.svelte";
 	export let data;
 </script>
 
@@ -37,10 +36,12 @@
 
 		<TrashRemoved data={data.dataApi.totals} />
 
-		<!-- Box 3: percentage since 2013 -->
-		<section class="panel box-3">
-			<h2>Plastic removed from ocean and river systems</h2>
-			<ChartRiverOcean {data} />
+        <TrashRemoved data={data.dataApi.totals} text={data.dataHygraph}></TrashRemoved>
+
+        <!-- Box 3: percentage since 2013 -->
+        <section class="panel box-3">
+            <h2>Plastic removed from ocean and river systems</h2>
+            <ChartRiverOcean data={data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->

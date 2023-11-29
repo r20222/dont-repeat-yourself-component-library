@@ -1,10 +1,9 @@
 <script>
-    import Infotext from '../../components/infotext.svelte';
-    import TrashRemovedOcean from '../../components/trash-removed.svelte';
-    import LastPortCall from '../../components/lastportcall.svelte'
-
-    import Image from '../../components/image.svelte';
-	import Startdate from '../../components/startdate.svelte';
+    import Infotext from '../../lib/components/infotext.svelte';
+    import TrashRemovedOcean from '../../lib/components/trash-removed.svelte';
+    import LastPortCall from '../../lib/components/lastportcall.svelte'
+    import Image from '../../lib/molecules/image.svelte';
+	import Startdate from '../../lib/components/startdate.svelte';
     export let data
 </script>
 
@@ -14,7 +13,7 @@
 
 <section>
     <h2>{data.dataApi.systems[0]. name}</h2>
-    <TrashRemovedOcean data={data.dataApi.systems[0]} />
+    <TrashRemovedOcean data={data.dataApi.systems[0]} text={data.dataHygraph} />
     <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
     <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
     <LastPortCall data={data} />
