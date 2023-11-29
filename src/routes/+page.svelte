@@ -35,7 +35,6 @@
 
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
-            <h2>Plastic removed from ocean and river systems</h2>
             <ChartRiverOcean data={data} />
 		</section>
 
@@ -212,9 +211,6 @@
 <footer />
 
 <style>
-	/* Roboto font */
-	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 	/* Proxima font */
 	@font-face {
 		font-family: 'Proxima';
@@ -379,7 +375,6 @@
 	.box-4{
 		font-size: 1.6rem;
 		color: var(--lightBlue);
-		font-family: 'Roboto Mono', monospace;
 	}
 
 	.box-3,
@@ -576,7 +571,6 @@
 	}
 
 	.amount h4 {
-		font-family: 'Roboto', monospace;
 		color: var(--lightBlue);
 		font-weight: 500;
 		font-size: 1.45rem;
@@ -674,7 +668,6 @@
 		}
 
 		.amount h4 {
-			font-family: 'Roboto', monospace;
 			color: var(--lightBlue);
 			font-weight: 500;
 			font-size: 1.8rem;

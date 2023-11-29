@@ -8,8 +8,8 @@ export async function load() {
   query Assets {
     dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
       trashRemoved {
-        month
         total
+        month
       }
       title
       ocean {
@@ -23,7 +23,9 @@ export async function load() {
           }
         }
         oceanImage {
-          url
+          image {
+            url
+          }
         }
         oceanExtractionDate {
           markdown

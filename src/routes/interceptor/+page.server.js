@@ -15,15 +15,17 @@ export async function load({ url, params }) {
         id
       }
       trashRemoved {
-        month
         total
+        month
       }
       title
       river {
         id
         slug
         riverImage {
-          url
+          image {
+            url
+          }
         }
         riverTitle
         riverInfoText {
@@ -34,7 +36,7 @@ export async function load({ url, params }) {
         }
       }
     }
-  }  
+  } 
   `
  
 
