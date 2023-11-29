@@ -173,6 +173,7 @@
     height: 500px; 
 	font-size: 140%;
     }
+	
 	table th{
 		display: flex;
 		justify-content: start;
