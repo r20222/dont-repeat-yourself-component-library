@@ -48,11 +48,13 @@ export async function load({ url, params }) {
   
   const grrrData = await fetch("https://fdnd-toc-api.netlify.app/river")
   const interceptorList = await grrrData.json()
-
+ 
+  
   const currentInterceptor = interceptorList.systems.filter(interceptor => {
     return interceptor.id == url.searchParams.get('id')
   })
   
   return {currentInterceptorHygraph, currentInterceptor, dataHygraph}
 }
+
 

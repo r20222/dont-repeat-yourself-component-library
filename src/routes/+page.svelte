@@ -3,9 +3,9 @@
 	import TrashRemoved from '../lib/components/trash-removed.svelte';
 	import Map from '../lib/components/map.svelte';
 	import Trashgraph from '../lib/components/trashGraph.svelte';
-	import ChartContinents from "../lib/components/chartContinents.svelte";
-	import ChartRiverOcean from "../lib/components/chartRiverOcean.svelte";
-	import SystemStatus from "../lib/components/system-status.svelte"
+	import ChartContinents from '../lib/components/chartContinents.svelte';
+	import ChartRiverOcean from '../lib/components/chartRiverOcean.svelte';
+	import SystemStatus from '../lib/components/system-status.svelte';
 	export let data;
 </script>
 
@@ -37,11 +37,11 @@
 
 		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
 
-        <TrashRemoved data={data.dataApi.totals} text={data.dataHygraph}></TrashRemoved>
+		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
 
-        <!-- Box 3: percentage since 2013 -->
-        <section class="panel box-3">
-            <ChartRiverOcean data={data} />
+		<!-- Box 3: percentage since 2013 -->
+		<section class="panel box-3">
+			<ChartRiverOcean {data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
@@ -55,13 +55,13 @@
 			<Trashgraph {data} />
 		</section>
 
-		<div class="map">
+		<section class="map">
 			<Map {data} />
-		</div>
+		</section>
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />
 
-		<SystemStatus data={data} />
+		<SystemStatus {data} />
 
 		<!-- More: table more information links -->
 		<section class="panel more">

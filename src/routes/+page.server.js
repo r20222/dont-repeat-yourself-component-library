@@ -24,6 +24,9 @@ export async function load() {
           titel
         }
         title
+        river {
+          slug
+        }
       }
     }
   `;
