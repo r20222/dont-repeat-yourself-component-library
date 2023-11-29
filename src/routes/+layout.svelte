@@ -1,21 +1,13 @@
 <script>
 	import { onMount } from "svelte";
 
-    onMount (() => {
-        const ToggleMenu = document.getElementById('ToggleMenu');
-		const Header = document.getElementById('header');
-
-consol
-
-		ToggleMenu.addEventListener('click', function () {
-            console.log('stests')
-			Header.classList.toggle('.header-off');
-		});
-    })
-
+   let visible = true
+    function ToggleMenu() {
+        visible = !visible
+    }
 </script>
-
-<header id="Header" >
+{#if visible}
+<header class="Header" >
 	<nav>
 		<img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup" />
 		<ul>
@@ -61,9 +53,11 @@ consol
 				</a>
 			</li>
 		</ul>
-		<button id="ToggleMenu">HIDE MENU</button>
+		<button on:click={ToggleMenu}>HIDE MENU</button>
 	</nav>
 </header>
+{/if}
+<button on:click={ToggleMenu}>SHOW MENU</button>
 
 <main>
 	<slot />
