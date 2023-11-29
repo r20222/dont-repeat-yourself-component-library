@@ -1,3 +1,13 @@
+<script>
+	import { onMount } from "svelte";
+
+   let visible = true
+    function ToggleMenu() {
+        visible = !visible
+    }
+</script>
+{#if visible}
+<header class="Header" >
 <header>
 	<nav>
 		<img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup" />
@@ -44,6 +54,11 @@
 				</a>
 			</li>
 		</ul>
+		<button on:click={ToggleMenu}>HIDE MENU</button>
+	</nav>
+</header>
+{/if}
+<button on:click={ToggleMenu}>SHOW MENU</button>
 	</nav>
 </header>
 
@@ -123,6 +138,10 @@
 		z-index: 100;
 	}
 
+	.header-off {
+		display: none;
+	}
+  
 	nav {
 		height: 5.5rem;
 		display: flex;
@@ -139,6 +158,24 @@
 		width: 11rem;
 		height: 100%;
 		padding: 0rem;
+	}
+
+	button {
+		background-color: #143653;
+		border: 1px #fff solid;
+		border-radius: 0.3rem;
+		padding: 0.8rem;
+		width: fit-content;
+		margin: 0 auto;
+		color: #fff;
+		font-weight: 600;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05rem;
+	}
+
+	button:hover {
+		background-color: rgba(128, 128, 128, 0.332);
 	}
 
 	.nav-link {
