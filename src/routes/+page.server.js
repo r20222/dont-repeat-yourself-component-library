@@ -16,12 +16,7 @@ export async function load() {
             markdown
           }
         }
-        trashRemoved {
-          trashRemovedText {
-            html
-            text
-          }
-        }
+        
         title
       }
     }
