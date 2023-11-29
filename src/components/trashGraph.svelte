@@ -1,64 +1,143 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart } from 'chart.js/auto';
+
 	export let data;
 	let trashdata = data;
 
+
+	// controle of JS aanstaat in de browser
+	let isEnabled = false;
+	
+	
 	// de slice -4 pakt de laatste vier months
-	const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-4);
-	console.log(laatsteVierMaanden[0].debris_extracted);
-
-	// Gegevens en configuratie
-	const labels = [
-		laatsteVierMaanden[0].month,
-		laatsteVierMaanden[1].month,
-		laatsteVierMaanden[2].month,
-		laatsteVierMaanden[3].month
-	];
+	const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-6);
 
 
-	data = {
-		labels: labels,
-		datasets: [
-			{
-				label: 'Trash collected in kilogram',
-				data: [
-					laatsteVierMaanden[0].debris_extracted,
-					laatsteVierMaanden[1].debris_extracted,
-					laatsteVierMaanden[2].debris_extracted,
-					laatsteVierMaanden[3].debris_extracted
-				],
-				fill: true,
-				borderColor: 'rgb(75, 192, 192)',
-				tension: 0.1
-			}
-		]
-	};
-	// Functie om de kleurinstelling voor Chart.js te configureren op basis van dark mode
-	function configureChartColor() {
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			// Dark mode wordt gebruikt
-			Chart.defaults.color = 'white';
-		} else {
-			// Dark mode wordt niet gebruikt
-			Chart.defaults.color = '#143653';
-		}
-	}
-	onMount(() => {
-		configureChartColor();
+	// gebruik de Intl browser API om nummers om te zetten in maandnaam
+	const monthNames = laatsteVierMaanden.map(item => {
+		const date = new Date();
+		date.setMonth(item.month - 1); // Maanden zijn zero-based in JavaScript
 
-		const ctx = document.getElementById('line-chart').getContext('2d');
-		new Chart(ctx, {
-			type: 'line',
-			data: data
-		});
+		return new Intl.DateTimeFormat('nl-NL', { month: 'long' }).format(date);
 	});
+
+	
+	
+	onMount(() => {
+
+		console.log(monthNames[0])
+
+
+		isEnabled = true;
+
+		// HighchartsMore(Highcharts);
+
+	// Gebruik een setTimeout om ervoor te zorgen dat er wat tijd is om de DOM op te zetten voordat de grafiek wordt geïnitialiseerd
+	setTimeout(() => {
+
+
+		Highcharts.chart('container', {
+      chart: {
+        type: 'packedbubble',
+		// backgroundColor: '#5CC8DE'
+      },
+	  title: {
+    	text: ''
+  		},
+      plotOptions: {
+        packedbubble: {
+			maxSize: '100%',
+            minSize: '40%'
+        }
+      },
+      series: [{
+		name: monthNames[0],
+        data: [{
+			name: monthNames[0],
+			value: laatsteVierMaanden[0].debris_extracted,
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)'
+        }
+		}]
+      }, {
+		name: monthNames[1],
+        data: [{
+			name: monthNames[1],
+			value: laatsteVierMaanden[1].debris_extracted,
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)'
+        }
+		}]
+      },{
+		name: monthNames[2],
+        data: [{
+			name: monthNames[2],
+			value: laatsteVierMaanden[2].debris_extracted,
+			fillColor: 'blue',
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)' 
+        }
+		}]
+      },{
+		name: monthNames[3],
+        data: [{
+			name: monthNames[3],
+			value: laatsteVierMaanden[3].debris_extracted,
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)' 
+        }
+		}]
+      },{
+		name: monthNames[4],
+        data: [{
+			name: monthNames[4],
+			value: laatsteVierMaanden[4].debris_extracted,
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)'
+        }
+		}]
+      },{
+		name: monthNames[5],
+        data: [{
+			name: monthNames[5],
+			value: laatsteVierMaanden[5].debris_extracted,
+			marker: {
+            symbol: 'url(/cropped-plastic-bottle-skull-label.png)'
+        }
+		}]
+      }]
+    });
+	}, 100);
+});
 </script>
 
 <h2>Trash collected over time</h2>
 <p>In kilogram</p>
 
-<canvas id="line-chart" width="400" height="200" />
+
+
+{#if isEnabled}
+	<section id="container"></section>
+{:else}
+	<table >
+		<tr>
+			<th>{monthNames[0]}</th>
+			<td>{laatsteVierMaanden[0].debris_extracted}</td>
+		</tr>
+		<tr>
+			<th>{monthNames[1]}</th>
+			<td>{laatsteVierMaanden[1].debris_extracted}</td>
+		</tr>
+		<tr>
+			<th>{monthNames[2]}</th>
+			<td>{laatsteVierMaanden[2].debris_extracted}</td>
+		</tr>
+		<tr>
+			<th>{monthNames[3]}</th>
+			<td>{laatsteVierMaanden[3].debris_extracted}</td>
+		</tr>
+	</table>
+{/if}
 
 <style>
 	:root {
@@ -89,4 +168,14 @@
 			--iconSize: 2rem;
 		}
 	}
+	#container {
+    width: 100%;
+    height: 500px; 
+	font-size: 140%;
+    }
+	table th{
+		display: flex;
+		justify-content: start;
+	}
+
 </style>

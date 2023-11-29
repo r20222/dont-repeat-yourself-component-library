@@ -8,6 +8,7 @@
 </script>
 {#if visible}
 <header class="Header" >
+<header>
 	<nav>
 		<img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup" />
 		<ul>
@@ -58,6 +59,8 @@
 </header>
 {/if}
 <button on:click={ToggleMenu}>SHOW MENU</button>
+	</nav>
+</header>
 
 <main>
 	<slot />
@@ -138,7 +141,7 @@
 	.header-off {
 		display: none;
 	}
-
+  
 	nav {
 		height: 5.5rem;
 		display: flex;

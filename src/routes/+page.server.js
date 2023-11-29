@@ -16,7 +16,10 @@ export async function load() {
             markdown
           }
         }
-        
+        trashRemoved {
+          month
+          total
+        }
         title
       }
     }
