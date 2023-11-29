@@ -15,17 +15,17 @@ export async function load({ url, params }) {
         id
       }
       trashRemoved {
-        trashRemovedText {
-          html
-          text
-        }
+        month
+        total
       }
       title
       river {
         id
         slug
         riverImage {
-          url
+          image {
+            url
+          }
         }
         riverTitle
         riverInfoText {
@@ -48,11 +48,13 @@ export async function load({ url, params }) {
   
   const grrrData = await fetch("https://fdnd-toc-api.netlify.app/river")
   const interceptorList = await grrrData.json()
-
+ 
+  
   const currentInterceptor = interceptorList.systems.filter(interceptor => {
     return interceptor.id == url.searchParams.get('id')
   })
   
   return {currentInterceptorHygraph, currentInterceptor}
 }
+
 

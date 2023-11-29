@@ -3,8 +3,8 @@
 	import TrashRemoved from '../components/trash-removed.svelte';
 	import Map from '/src/components/map.svelte';
 	import Trashgraph from '/src/components/trashGraph.svelte';
-	import ChartContinents from "../components/chartContinents.svelte";
-	import ChartRiverOcean from "../components/chartRiverOcean.svelte";
+	import ChartContinents from '../components/chartContinents.svelte';
+	import ChartRiverOcean from '../components/chartRiverOcean.svelte';
 	export let data;
 </script>
 
@@ -13,36 +13,39 @@
 </svelte:head>
 
 <section class="main">
-  
-    <div class="container2">
-        <!-- Blue line -->
-        <div class="menu">
-            <div class="line"></div>
-        </div>
+	<div class="container2">
+		<!-- Blue line -->
+		<div class="menu">
+			<div class="line" />
+		</div>
 
-        <!-- Title + Searchbar -->
-        <section class="header-dashboard">
+		<!-- Title + Searchbar -->
+		<section class="header-dashboard">
+			<h1>{data.dataHygraph.dashboard.title}</h1>
+			<form class="search" action="/" method="GET">
+				<input type="text" name="search" placeholder="Search.." />
+				<input
+					type="submit"
+					name="search-button"
+					aria-label="search button"
+					class="search-button"
+				/>
+				<!-- voeg een zoekicoon toe -->
+			</form>
+		</section>
 
-            <h1>{data.dataHygraph.dashboard.title}</h1>
-            <form class="search" action="/" method="GET">
-                <input type="text" name="search" placeholder="Search..">
-                <input type="submit" name="search-button" aria-label="search button" class="search-button">
-                    <!-- voeg een zoekicoon toe -->
-            </form>
-        </section>
+		<TrashRemoved data={data.dataApi.totals} />
 
-        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
-
-        <!-- Box 3: percentage since 2013 -->
-        <section class="panel box-3">
-            <h2>Plastic removed from ocean and river systems</h2>
-            <ChartRiverOcean data={data} />
+		<!-- Box 3: percentage since 2013 -->
+		<section class="panel box-3">
+			<h2>Plastic removed from ocean and river systems</h2>
+			<ChartRiverOcean {data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-            <h2>Plastic removed per continent</h2>
-			<ChartContinents data={data} />
+			<h2>Plastic removed per continent</h2>
+			<ChartContinents {data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->
@@ -50,9 +53,9 @@
 			<Trashgraph {data} />
 		</section>
 
-		<div class="map">
+		<section class="map">
 			<Map {data} />
-		</div>
+		</section>
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />
 
@@ -230,40 +233,41 @@
 		font-family: 'Proxima', sans-serif;
 	}
 
-    :root {
-    --darkBlue: #143653;
-    --trashRemovedBackground: white;
-    --lightBlue: #5CC8DE;
-    --whiteColor: #ffffff;
-    --lightGray: #f7f7f7;
-    --accentGray: rgb(228, 228, 228);
-    --textColor: #143653;
-    --boxShadow: rgba(128, 128, 128, 0.132);
-    --color: rgb(212, 212, 212);
-    --textSize: 1.2rem;
-    --iconSize: 2rem;
-    }
+	:root {
+		--darkBlue: #143653;
+		--trashRemovedBackground: white;
+		--lightBlue: #5cc8de;
+		--whiteColor: #ffffff;
+		--lightGray: #f7f7f7;
+		--accentGray: rgb(228, 228, 228);
+		--textColor: #143653;
+		--boxShadow: rgba(128, 128, 128, 0.132);
+		--color: rgb(212, 212, 212);
+		--textSize: 1.2rem;
+		--iconSize: 2rem;
+	}
 
-        /* Als darkmode de standaard instelling is */
-        @media (prefers-color-scheme: dark) {
-        :root {
-        --darkBlue: #ffffff;
-        --trashRemovedBackground: #143653;
-        --lightBlue: #5CC8DE;
-        --whiteColor: #143653;
-        --lightGray: #0D2437;
-        --accentGray: rgb(228, 228, 228);
-        --textColor: #ffffff;
-        --boxShadow: rgba(128, 128, 128, 0.0);
-        --color: rgb(212, 212, 212);
-        --textSize: 1.2rem;
-        --iconSize: 2rem;
-        } 
-  }
+	/* Als darkmode de standaard instelling is */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--darkBlue: #ffffff;
+			--trashRemovedBackground: #143653;
+			--lightBlue: #5cc8de;
+			--whiteColor: #143653;
+			--lightGray: #0d2437;
+			--accentGray: rgb(228, 228, 228);
+			--textColor: #ffffff;
+			--boxShadow: rgba(128, 128, 128, 0);
+			--color: rgb(212, 212, 212);
+			--textSize: 1.2rem;
+			--iconSize: 2rem;
+		}
+	}
 
-    :global(html) {
-    scroll-behavior: smooth;
-    }
+	:global(html) {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
 
 	:global(body) {
 		background-color: var(--lightGray);
@@ -300,21 +304,20 @@
 			'box-1 box-2'
 			'dashboard-info dashboard-info'
 			'map map'
-			'share share'	
-			'box-3 box-3'	
+			'share share'
+			'box-3 box-3'
 			'box-4 box-4'
-			'grafiek grafiek'	
-			'more more'		
+			'grafiek grafiek'
+			'more more';
 	}
 
-    .panel {
-    border-radius: .5rem;
-    padding: 1.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    transition: .2s;
-    }
-
+	.panel {
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		background-color: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		transition: 0.2s;
+	}
 
 	/* Grid areas */
 	.header-dashboard {
@@ -376,7 +379,7 @@
 
 	/* boxes styling */
 	.box-3,
-	.box-4{
+	.box-4 {
 		font-size: 1.6rem;
 		color: var(--lightBlue);
 		font-family: 'Roboto Mono', monospace;
@@ -586,45 +589,43 @@
 		width: 20%;
 	}
 
-    @media (min-width:700px) {
-        .container2 {
-        margin: 8rem 1.5rem 1.5rem 1.5rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr; */
-        gap: 1.2rem;
-        grid-template-areas:
-			"menu menu menu menu"
-			"header-dashboard header-dashboard header-dashboard header-dashboard"
-			"box-1 box-1 box-2 box-2"
-			"dashboard-info dashboard-info map map"
-			"dashboard-info dashboard-info map map"
-			"share share share share"
-			"box-3 box-3 box-4 box-4"
-			"grafiek grafiek grafiek more"
-    }
-    }
-
-    @media (min-width:992px) {
-    .container2 {
-        margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: repeat(6, 1fr);
-        /* grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr; */
-        grid-template-areas:
-        "menu menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "box-1 box-1 box-1 box-2 box-2 box-2"
-        "dashboard-info dashboard-info map map map map"
-		"share share share share share share"
-        "box-3 box-3 box-3 box-4 box-4 box-4"
-        "grafiek grafiek grafiek more more more";
-    }
+	@media (min-width: 700px) {
+		.container2 {
+			margin: 8rem 1.5rem 1.5rem 1.5rem;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			/* grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr; */
+			gap: 1.2rem;
+			grid-template-areas:
+				'menu menu menu menu'
+				'header-dashboard header-dashboard header-dashboard header-dashboard'
+				'box-1 box-1 box-2 box-2'
+				'dashboard-info dashboard-info map map'
+				'dashboard-info dashboard-info map map'
+				'share share share share'
+				'box-3 box-3 box-4 box-4'
+				'grafiek grafiek grafiek more';
+		}
 	}
 
+	@media (min-width: 992px) {
+		.container2 {
+			margin: 5rem 2rem 2rem 22.3rem;
+			grid-template-columns: repeat(6, 1fr);
+			/* grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr; */
+			grid-template-areas:
+				'menu menu menu menu menu menu'
+				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
+				'box-1 box-1 box-1 box-2 box-2 box-2'
+				'dashboard-info dashboard-info map map map map'
+				'share share share share share share'
+				'box-3 box-3 box-3 box-4 box-4 box-4'
+				'grafiek grafiek grafiek more more more';
+		}
+	}
 
-    /* Breakpoints large screen */
-    @media (min-width:1200px) {
-
+	/* Breakpoints large screen */
+	@media (min-width: 1200px) {
 		.more {
 			grid-area: more;
 		}
@@ -637,11 +638,11 @@
 			padding: 1.5rem;
 		}
 
-		.box-4{
+		.box-4 {
 			font-size: 3rem;
 		}
 
-		.box-3{
+		.box-3 {
 			font-size: 2.5rem;
 		}
 
