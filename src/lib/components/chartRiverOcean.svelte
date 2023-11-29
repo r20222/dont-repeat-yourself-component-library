@@ -1,7 +1,6 @@
 <script>
 	// import { onMount } from 'svelte';
-	import SvgPlasticBottle from '../atoms/plastic-bottle-svg.svelte';
-
+	import SvgPlasticBottle from '$lib/atoms/plastic-bottle-svg.svelte';
 
 	export let data;
 
