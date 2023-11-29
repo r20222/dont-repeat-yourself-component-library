@@ -1,10 +1,11 @@
 <script>
-	import Infotext from '../components/infotext.svelte';
-	import TrashRemoved from '../components/trash-removed.svelte';
-	import Map from '/src/components/map.svelte';
-	import Trashgraph from '/src/components/trashGraph.svelte';
-	import ChartContinents from '../components/chartContinents.svelte';
-	import ChartRiverOcean from '../components/chartRiverOcean.svelte';
+	import Infotext from '../lib/components/infotext.svelte';
+	import TrashRemoved from '../lib/components/trash-removed.svelte';
+	import Map from '../lib/components/map.svelte';
+	import Trashgraph from '../lib/components/trashGraph.svelte';
+	import ChartContinents from '../lib/components/chartContinents.svelte';
+	import ChartRiverOcean from '../lib/components/chartRiverOcean.svelte';
+	import SystemStatus from '../lib/components/system-status.svelte';
 	export let data;
 </script>
 
@@ -34,11 +35,12 @@
 			</form>
 		</section>
 
-		<TrashRemoved data={data.dataApi.totals} />
+		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
+
+		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
 
 		<!-- Box 3: percentage since 2013 -->
 		<section class="panel box-3">
-			<h2>Plastic removed from ocean and river systems</h2>
 			<ChartRiverOcean {data} />
 		</section>
 
@@ -59,81 +61,7 @@
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />
 
-		<!-- Share: table system statuses -->
-		<section class="panel share">
-			<h2>System statuses</h2>
-			<table>
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>In operation</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>10 interceptors</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>Harvesting</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 ocean system</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker blue" />
-								<h3>Installed for testing</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Planned</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Contract signed</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-			</table>
-		</section>
+		<SystemStatus {data} />
 
 		<!-- More: table more information links -->
 		<section class="panel more">
@@ -215,9 +143,6 @@
 <footer />
 
 <style>
-	/* Roboto font */
-	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 	/* Proxima font */
 	@font-face {
 		font-family: 'Proxima';
@@ -382,7 +307,6 @@
 	.box-4 {
 		font-size: 1.6rem;
 		color: var(--lightBlue);
-		font-family: 'Roboto Mono', monospace;
 	}
 
 	.box-3,
@@ -472,123 +396,6 @@
 		}
 	}
 
-	/* Pulse */
-	.pulse-marker {
-		background: black;
-		border-radius: 50%;
-		height: 1rem;
-		width: 1rem;
-		transform: scale(1);
-		animation: pulse-black 2s infinite;
-	}
-
-	.pulse-marker.green {
-		background: rgb(132, 206, 95);
-		box-shadow: 0 0 0 0 rgb(132, 206, 95);
-		animation: pulse-green 2s infinite;
-	}
-
-	.pulse-marker.blue {
-		background: var(--lightBlue);
-		box-shadow: 0 0 0 0 var(--lightBlue);
-		animation: pulse-blue 2s infinite;
-	}
-
-	.pulse-marker.gray {
-		background: rgb(176, 176, 176);
-		box-shadow: 0 0 0 0 rgb(176, 176, 176);
-		animation: pulse-gray 2s infinite;
-	}
-
-	.pulse-container {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 0.3rem;
-	}
-
-	@keyframes pulse-green {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgb(132, 206, 95);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-		}
-	}
-
-	@keyframes pulse-blue {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 var(--lightBlue);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-		}
-	}
-
-	@keyframes pulse-gray {
-		0% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgb(176, 176, 176);
-		}
-
-		70% {
-			transform: scale(1);
-			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-		}
-
-		100% {
-			transform: scale(0.95);
-			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-		}
-	}
-
-	/* System statuses */
-	table {
-		width: 100%;
-	}
-
-	tr {
-		height: 2.5rem;
-	}
-
-	.dot {
-		width: 40%;
-	}
-
-	.status-pulse {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.amount h4 {
-		font-family: 'Roboto', monospace;
-		color: var(--lightBlue);
-		font-weight: 500;
-		font-size: 1.45rem;
-	}
-
-	.amount {
-		width: 20%;
-	}
-
 	@media (min-width: 700px) {
 		.container2 {
 			margin: 8rem 1.5rem 1.5rem 1.5rem;
@@ -675,7 +482,6 @@
 		}
 
 		.amount h4 {
-			font-family: 'Roboto', monospace;
 			color: var(--lightBlue);
 			font-weight: 500;
 			font-size: 1.8rem;

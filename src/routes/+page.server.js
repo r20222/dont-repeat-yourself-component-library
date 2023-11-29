@@ -17,9 +17,11 @@ export async function load() {
           }
         }
         trashRemoved {
-        month
-        total
-          
+          total
+          month
+        }
+        chartRiverOcean {
+          titel
         }
         title
         river {
