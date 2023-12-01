@@ -2,8 +2,8 @@
     import { onMount } from 'svelte';
     export let data
     onMount(() =>{
-        var buttonLeft = document.querySelector("button:first-of-type")
-        var buttonRight = document.querySelector("button:last-of-type")
+        var buttonLeft = document.querySelector(".control--left")
+        var buttonRight = document.querySelector(".control--right")
         var scroller = document.querySelector(".scroller")
         const itemWidth = document.querySelector('img').clientWidth;
         buttonLeft.addEventListener("click", () => {
