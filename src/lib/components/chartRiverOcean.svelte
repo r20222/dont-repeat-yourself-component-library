@@ -4,7 +4,7 @@
 
 	export let data;
 
-		console.log(data)
+	// console.log(data)
 	// data.riverDataJson.systems.forEach( system => {
 	// 	totalTrashKgRiver.push(system.debris_extracted_total)
 	// });
@@ -89,7 +89,6 @@
 </div>
 
 <style>
-
 	/* SVG */
 	.wrapper-graph-ocean-river {
 		width: 100%;
@@ -132,7 +131,7 @@
 		background-color: var(--darkBlue);
 		color: var(--accentGray);
 		translate: 0 2px;
-		transition: .4s;
+		transition: 0.4s;
 	}
 
 	details > summary {
@@ -167,7 +166,7 @@
 		background-color: var(--darkBlue);
 		color: var(--accentGray);
 		translate: 0 2px;
-		transition: .4s;
+		transition: 0.4s;
 	}
 
 	/* SVG animations */

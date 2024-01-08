@@ -6,7 +6,14 @@
 	import ChartContinents from '../lib/components/chartContinents.svelte';
 	import ChartRiverOcean from '../lib/components/chartRiverOcean.svelte';
 	import SystemStatus from '../lib/components/system-status.svelte';
+	import { onMount } from 'svelte';
 	export let data;
+
+	let showAnimation = false;
+
+	function toggleAnimation() {
+		showAnimation = !showAnimation;
+	}
 </script>
 
 <svelte:head>
@@ -23,20 +30,9 @@
 		<!-- Title + Searchbar -->
 		<section class="header-dashboard">
 			<h1>{data.dataHygraph.dashboard.title}</h1>
-			<form class="search" action="/" method="GET">
-				<input type="text" name="search" placeholder="Search.." />
-				<input
-					type="submit"
-					name="search-button"
-					aria-label="search button"
-					class="search-button"
-				/>
-				<!-- voeg een zoekicoon toe -->
-			</form>
 		</section>
 
 		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
-
 		<TrashRemoved data={data.dataApi.totals} text={data.dataHygraph} />
 
 		<!-- Box 3: percentage since 2013 -->
@@ -64,85 +60,164 @@
 		<SystemStatus {data} />
 
 		<!-- More: table more information links -->
-		<section class="panel more">
-			<h2>More about</h2>
-			<table class="table-more">
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Our river technology
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
+		<section class="panel more" />
+	</div>
 
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							The economic impact
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
+	<div class="back-to-top-button">
+		<a on:click={toggleAnimation} href="/" id="scroll-top-button" aria-label="scroll to top"
+			>back to top</a
+		>
+	</div>
 
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Plastic sources
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
+	<!-- WAVES -->
 
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Donate
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<span>
-					<tr class="more-row">
-						<td class="more-icon">
-							<a href="/" class="more-link">
-								<!-- add icon -->
-								Sign up to newsletter
-							</a>
-						</td>
-						<td class="arrow">
-							<!-- add icon -->
-						</td>
-					</tr>
-				</span>
-			</table>
-		</section>
+	<div class="waves-wrapper-container">
+		<div class="waves-wrapper {showAnimation ? 'active' : ''}">
+			<svg
+				class="waves"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="0 24 150 28"
+				preserveAspectRatio="none"
+				shape-rendering="auto"
+			>
+				<defs>
+					<path
+						id="gentle-wave"
+						d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+					/>
+				</defs>
+				<g class="parallax">
+					<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(92, 200, 222, 0.7)" />
+					<use
+						xlink:href="#gentle-wave"
+						x="48"
+						y="3"
+						fill="rgba(92, 200, 222, 0.5)
+					"
+					/>
+					<use
+						xlink:href="#gentle-wave"
+						x="48"
+						y="5"
+						fill="rgba(92, 200, 222, 0.3)
+					"
+					/>
+					<use xlink:href="#gentle-wave" x="48" y="7" fill="#5cc8de" />
+				</g>
+			</svg>
+		</div>
 	</div>
 </section>
-<!-- End main section -->
-
-<!-- Scroll to top button -->
-<a href="#top" class="scroll-top" aria-label="scroll to top">
-	<!-- add icon -->TOP
-</a>
-
-<!-- Footer -->
-<footer />
 
 <style>
+	/* WAVES START */
+
+	.waves-wrapper-container {
+		position: absolute;
+		z-index: 100;
+		/* background: red; */
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+	}
+
+	.waves-wrapper {
+		width: 100%;
+		position: absolute;
+		bottom: -285px;
+		left: 0;
+		background: #5cc8de;
+		animation: none;
+	}
+
+	.waves-wrapper.active {
+		animation: grow 18s linear infinite;
+	}
+
+	.waves {
+		position: relative;
+		width: 100%;
+		bottom: 141px; /* place the waves on top of the waves-wrapper */
+		margin-bottom: -7px;
+		min-height: 100px;
+		max-height: 150px;
+	}
+
+	/* Animation */
+
+	.parallax > use {
+		animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+	}
+	.parallax > use:nth-child(1) {
+		animation-delay: -2s;
+		animation-duration: 7s;
+	}
+	.parallax > use:nth-child(2) {
+		animation-delay: -3s;
+		animation-duration: 10s;
+	}
+	.parallax > use:nth-child(3) {
+		animation-delay: -4s;
+		animation-duration: 13s;
+	}
+	.parallax > use:nth-child(4) {
+		animation-delay: -5s;
+		animation-duration: 20s;
+	}
+	@keyframes move-forever {
+		0% {
+			transform: translate3d(-90px, 0, 0);
+		}
+		100% {
+			transform: translate3d(85px, 0, 0);
+		}
+	}
+
+	@keyframes grow {
+		0% {
+			height: 0%;
+		}
+		20% {
+			height: 10%;
+		}
+		40% {
+			height: 30%;
+		}
+		60% {
+			height: 50%;
+		}
+		80% {
+			height: 70%;
+		}
+		100% {
+			height: 100%;
+		}
+	}
+	/*Shrinking for mobile*/
+	@media (max-width: 768px) {
+		.waves {
+			height: 40px;
+			min-height: 40px;
+		}
+	}
+
+	/* WAVES END */
+	.back-to-top-button a {
+		z-index: 999;
+		z-index: 999;
+		position: absolute;
+		bottom: 1%;
+		right: 3%;
+		padding: 2rem;
+		background-color: var(--lightBlue);
+		color: var(--whiteColor);
+		cursor: pointer;
+		border-radius: 0.5rem;
+	}
 	/* Proxima font */
 	@font-face {
 		font-family: 'Proxima';
@@ -205,11 +280,6 @@
 		font-weight: 500;
 		color: var(--darkBlue);
 		margin-bottom: 1rem;
-	}
-
-	h3 {
-		font-size: 1.3rem;
-		font-weight: 500;
 	}
 
 	a {
@@ -276,10 +346,6 @@
 		grid-area: box-4;
 	}
 
-	.share {
-		grid-area: share;
-	}
-
 	.more {
 		grid-area: more;
 	}
@@ -316,79 +382,7 @@
 		color: var(--darkBlue);
 	}
 
-	/* more styling */
-	.more-link {
-		display: flex;
-		justify-content: left;
-		align-items: center;
-		gap: 2rem;
-		color: var(--textColor);
-		font-size: 1.5rem;
-		text-transform: capitalize;
-	}
-
-	.more-link:hover {
-		color: var(--lightBlue);
-	}
-
-	.more-icon {
-		font-size: 1.8rem;
-		color: var(--lightBlue);
-	}
-
-	.table-more {
-		border-collapse: collapse;
-	}
-
-	.more-row {
-		border-bottom: 0.5px solid var(--accentGray);
-		height: 4rem;
-	}
-
-	.arrow {
-		text-align: right;
-	}
-
 	/* search bar */
-	.search {
-		display: flex;
-		gap: 0.5rem;
-	}
-	.search-button {
-		max-width: 8rem;
-	}
-	.search input {
-		width: 130px;
-		height: 25px;
-		border-radius: 5px;
-		outline: none;
-		padding-left: 0.5rem;
-		background: var(--whiteColor);
-		box-shadow: var(--boxShadow) 0px 0px 8px;
-		border: none;
-		color: var(--textColor);
-	}
-
-	.search input::placeholder {
-		color: var(--darkBlue);
-		font-size: 1.3rem;
-	}
-
-	/* Scroll to top */
-	.scroll-top {
-		position: absolute;
-		bottom: 1%;
-		right: 2%;
-		width: 3rem;
-		height: 3rem;
-		padding: 0.5rem;
-		background-color: var(--lightBlue);
-		color: var(--whiteColor);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-	}
 
 	@keyframes progress {
 		0% {
@@ -457,42 +451,6 @@
 		.box-4,
 		h2 {
 			font-size: 1.5rem;
-		}
-
-		.more h2 {
-			font-size: 1.8rem;
-		}
-
-		.share h2 {
-			font-size: 1.8rem;
-		}
-
-		.line {
-			height: 2px;
-			width: 6%;
-			background-color: var(--lightBlue);
-		}
-
-		.search input {
-			width: 190px;
-		}
-
-		.scroll-top {
-			display: none;
-		}
-
-		.amount h4 {
-			color: var(--lightBlue);
-			font-weight: 500;
-			font-size: 1.8rem;
-		}
-
-		h3 {
-			font-size: 1.5rem;
-		}
-
-		tr {
-			height: 3.3rem;
 		}
 	}
 </style>
