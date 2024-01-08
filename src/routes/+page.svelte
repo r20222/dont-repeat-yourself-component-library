@@ -8,12 +8,6 @@
 	import SystemStatus from '../lib/components/system-status.svelte';
 	import { onMount } from 'svelte';
 	export let data;
-
-	let showAnimation = false;
-
-	function toggleAnimation() {
-		showAnimation = !showAnimation;
-	}
 </script>
 
 <svelte:head>
@@ -68,156 +62,9 @@
 			>back to top</a
 		>
 	</div>
-
-	<!-- WAVES -->
-
-	<div class="waves-wrapper-container">
-		<div class="waves-wrapper {showAnimation ? 'active' : ''}">
-			<svg
-				class="waves"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink"
-				viewBox="0 24 150 28"
-				preserveAspectRatio="none"
-				shape-rendering="auto"
-			>
-				<defs>
-					<path
-						id="gentle-wave"
-						d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-					/>
-				</defs>
-				<g class="parallax">
-					<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(92, 200, 222, 0.7)" />
-					<use
-						xlink:href="#gentle-wave"
-						x="48"
-						y="3"
-						fill="rgba(92, 200, 222, 0.5)
-					"
-					/>
-					<use
-						xlink:href="#gentle-wave"
-						x="48"
-						y="5"
-						fill="rgba(92, 200, 222, 0.3)
-					"
-					/>
-					<use xlink:href="#gentle-wave" x="48" y="7" fill="#5cc8de" />
-				</g>
-			</svg>
-		</div>
-	</div>
 </section>
 
 <style>
-	/* WAVES START */
-
-	.waves-wrapper-container {
-		position: absolute;
-		z-index: 100;
-		/* background: red; */
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-	}
-
-	.waves-wrapper {
-		width: 100%;
-		position: absolute;
-		bottom: -285px;
-		left: 0;
-		background: #5cc8de;
-		animation: none;
-	}
-
-	.waves-wrapper.active {
-		animation: grow 18s linear infinite;
-	}
-
-	.waves {
-		position: relative;
-		width: 100%;
-		bottom: 141px; /* place the waves on top of the waves-wrapper */
-		margin-bottom: -7px;
-		min-height: 100px;
-		max-height: 150px;
-	}
-
-	/* Animation */
-
-	.parallax > use {
-		animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-	}
-	.parallax > use:nth-child(1) {
-		animation-delay: -2s;
-		animation-duration: 7s;
-	}
-	.parallax > use:nth-child(2) {
-		animation-delay: -3s;
-		animation-duration: 10s;
-	}
-	.parallax > use:nth-child(3) {
-		animation-delay: -4s;
-		animation-duration: 13s;
-	}
-	.parallax > use:nth-child(4) {
-		animation-delay: -5s;
-		animation-duration: 20s;
-	}
-	@keyframes move-forever {
-		0% {
-			transform: translate3d(-90px, 0, 0);
-		}
-		100% {
-			transform: translate3d(85px, 0, 0);
-		}
-	}
-
-	@keyframes grow {
-		0% {
-			height: 0%;
-		}
-		20% {
-			height: 10%;
-		}
-		40% {
-			height: 30%;
-		}
-		60% {
-			height: 50%;
-		}
-		80% {
-			height: 70%;
-		}
-		100% {
-			height: 100%;
-		}
-	}
-	/*Shrinking for mobile*/
-	@media (max-width: 768px) {
-		.waves {
-			height: 40px;
-			min-height: 40px;
-		}
-	}
-
-	/* WAVES END */
-	.back-to-top-button a {
-		z-index: 999;
-		z-index: 999;
-		position: absolute;
-		bottom: 1%;
-		right: 3%;
-		padding: 2rem;
-		background-color: var(--lightBlue);
-		color: var(--whiteColor);
-		cursor: pointer;
-		border-radius: 0.5rem;
-	}
 	/* Proxima font */
 	@font-face {
 		font-family: 'Proxima';
@@ -245,6 +92,19 @@
 		--color: rgb(212, 212, 212);
 		--textSize: 1.2rem;
 		--iconSize: 2rem;
+	}
+
+	.back-to-top-button a {
+		z-index: 999;
+		z-index: 999;
+		position: absolute;
+		bottom: 1%;
+		right: 3%;
+		padding: 2rem;
+		background-color: var(--lightBlue);
+		color: var(--whiteColor);
+		cursor: pointer;
+		border-radius: 0.5rem;
 	}
 
 	/* Als darkmode de standaard instelling is */
